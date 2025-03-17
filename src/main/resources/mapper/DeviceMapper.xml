@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.repository.mapper.DeviceMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.demo.repository.model.Device">
+            <id property="id" column="id" />
+            <result property="sku" column="sku" />
+            <result property="userId" column="user_id" />
+            <result property="model" column="model" />
+            <result property="name" column="name" />
+            <result property="type" column="type" />
+            <result property="subType" column="sub_type" />
+            <result property="connectionType" column="connection_type" />
+            <result property="firmwareVersion" column="firmware_version" />
+            <result property="macAddress" column="mac_address" />
+            <result property="ipAddress" column="ip_address" />
+            <result property="status" column="status" />
+            <result property="location" column="location" />
+            <result property="activationStatus" column="activation_status" />
+            <result property="lastOnlineTime" column="last_online_time" />
+            <result property="createdAt" column="created_at" />
+            <result property="deleted" column="deleted" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,sku,user_id,model,name,type,
+        sub_type,connection_type,firmware_version,mac_address,ip_address,
+        status,location,activation_status,last_online_time,created_at,
+        deleted
+    </sql>
+</mapper>
