@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
+
+import com.example.demo.constant.UserRole;
 import lombok.Data;
 
 /**
@@ -19,7 +21,7 @@ public class User implements Serializable {
      * 
      */
     @TableId(value = "id",type = IdType.AUTO)
-    private String id;
+    private Integer id;
 
     /**
      * 
@@ -43,7 +45,7 @@ public class User implements Serializable {
      * 
      */
     @TableField(value = "role")
-    private Object role;
+    private String role;
 
     /**
      * 

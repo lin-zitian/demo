@@ -19,7 +19,7 @@ public class Device implements Serializable {
      * 设备唯一ID（UUID格式）
      */
     @TableId(value = "id",type = IdType.ASSIGN_UUID)
-    private String id;
+    private Long id;
 
     /**
      * 设备SKU（唯一库存单位编码）
@@ -49,7 +49,7 @@ public class Device implements Serializable {
      * 设备大类（智能家居/智能照明等）
      */
     @TableField(value = "type")
-    private Object type;
+    private String type;
 
     /**
      * 设备子类型（如“智能台灯”“智能制冰机”）
@@ -61,7 +61,7 @@ public class Device implements Serializable {
      * 连接方式
      */
     @TableField(value = "connection_type")
-    private Object connectionType;
+    private String connectionType;
 
     /**
      * 固件版本（如“v2.1.6”）
@@ -85,7 +85,7 @@ public class Device implements Serializable {
      * 设备实时状态
      */
     @TableField(value = "status")
-    private Object status;
+    private String status;
 
     /**
      * 设备位置（如“客厅”“卧室”）
