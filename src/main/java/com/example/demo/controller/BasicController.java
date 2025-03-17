@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package com.example.demo.demos.web;
+package com.example.demo.controller;
 
+import com.example.demo.repository.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,8 +41,7 @@ public class BasicController {
     @ResponseBody
     public User user() {
         User user = new User();
-        user.setName("theonefx");
-        user.setAge(666);
+        user.setUsername("theonefx");
         return user;
     }
 
@@ -49,7 +49,7 @@ public class BasicController {
     @RequestMapping("/save_user")
     @ResponseBody
     public String saveUser(User u) {
-        return "user will save: name=" + u.getName() + ", age=" + u.getAge();
+        return "user will save: name=" + u.getUsername() ;
     }
 
     // http://127.0.0.1:8080/html
@@ -61,7 +61,6 @@ public class BasicController {
     @ModelAttribute
     public void parseUser(@RequestParam(name = "name", defaultValue = "unknown user") String name
             , @RequestParam(name = "age", defaultValue = "12") Integer age, User user) {
-        user.setName("zhangsan");
-        user.setAge(18);
+        user.setUsername("zhangsan");
     }
 }
