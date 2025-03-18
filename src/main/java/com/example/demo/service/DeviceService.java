@@ -10,4 +10,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface DeviceService extends IService<Device> {
 
+    Device getById(String id);
+
+    boolean removeById(String id);
 }
