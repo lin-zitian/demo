@@ -26,16 +26,15 @@ public class DeviceServiceImpl extends ServiceImpl<DeviceMapper, Device>
 
     @Override
     public Device getById(String id) {
-        // 先从缓存中获取
         Device device = redisTemplate.opsForValue().get(CACHE_PREFIX + id);
         if (device != null) {
+            System.out.println("从缓存中获取设备: " + device);
             return device;
         }
 
-        // 缓存中没有，从数据库获取
         device = super.getById(id);
         if (device != null) {
-            // 存入缓存，设置过期时间
+            System.out.println("从数据库中获取设备: " + device);
             redisTemplate.opsForValue().set(CACHE_PREFIX + id, device, 1, TimeUnit.HOURS);
         }
 
@@ -44,10 +43,9 @@ public class DeviceServiceImpl extends ServiceImpl<DeviceMapper, Device>
 
     @Override
     public boolean save(Device device) {
-        // 保存到数据库
         boolean result = super.save(device);
         if (result) {
-            // 存入缓存
+            // 确保存储到 Redis 的是完整的 Device 对象
             redisTemplate.opsForValue().set(CACHE_PREFIX + device.getId(), device, 1, TimeUnit.HOURS);
         }
         return result;
