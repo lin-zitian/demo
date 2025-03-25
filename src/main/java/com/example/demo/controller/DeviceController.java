@@ -66,7 +66,7 @@ public class DeviceController {
     @PostMapping("/register")
     @ApiOperation("注册设备")
     public BaseResult<String> registerDevice(@RequestBody Device device) {
-        String clientIp = request.getRemoteAddr();
+        String clientIp = deviceService.getClientIpAddress(request);
         device.setIpAddress(clientIp);
         deviceService.save(device);
         return BaseResult.ok("Device registered successfully");

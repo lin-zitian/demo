@@ -15,6 +15,22 @@ spring:
     host: localhost  # Redis主机
     port: 6379  # Redis端口
 
+  mqtt:
+    host-url: tcp://localhost:1883  # EMQX的MQTT地址
+    username: admin                  # 如果启用认证
+    password: yimin1314                 # 如果启用认证
+    client-id: mqttx-local  # 客户端ID
+    default-topic: test
+    timeout: 5000         # 连接超时(毫秒)
+    keepalive: 100
+    # 要订阅的其他主题
+    topics:
+      - test1/#
+      - test2/+
+
+
+
+
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true  # 开启驼峰命名自动映射
@@ -26,6 +42,9 @@ mybatis-plus:
       logic-delete-field: deleted  # 逻辑删除字段名
       logic-not-delete-value: 0  # 未删除的值
       logic-delete-value: 1  # 删除的值
+
+
+
 
 # 接口文档配置
 knife4j:
